@@ -1,0 +1,10 @@
+{
+    "name": "CRM API",
+    "version": "1.0.0",
+    "description": "CRM apiDoc example",
+    "title": "Custom apiDoc browser title",
+    "url" : "http://localhost:3001/api",
+    "order": [
+      "공통", "주문", "작업"
+    ]
+}

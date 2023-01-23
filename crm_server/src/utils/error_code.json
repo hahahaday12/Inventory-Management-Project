@@ -1,0 +1,46 @@
+{
+    "1": {
+        "text": "정의되지 않은 오류입니다.",
+        "error": "undefined_error"
+    },
+    "2": {
+        "text": "세션이 만료되었습니다.",
+        "error": "jwt is expired"
+    },
+    "3": {
+        "text": "전달된 파라미터가 잘못되었습니다.",
+        "error": "parameter is error"
+    },
+    "4": {
+        "text": "데이터가 존재하지 않습니다.",
+        "error": "none data"
+    },
+    "5": {
+        "text": "토큰 오류!! F12를 눌러 개발자 도구에서 Application 탭에 localStorage를 초기화 시켜주세요.",
+        "reason": "JWT_TOKEN_ERROR"
+    },
+    "6": {
+        "text": "권한이 없습니다.",
+        "reason": "no permission"
+    },
+    "7": {
+        "text": "존재하지 않는 그룹코드입니다.",
+        "reason": "no group code"
+    },
+    "8": {
+        "text": "이미 가입된 그룹입니다.",
+        "reason": "You are already a member of the group."
+    },
+    "9": {
+        "text": "가입에 실패했습니다.",
+        "reason": "fail to join"
+    },
+    "10": {
+        "text": "아이디가 일치하지 않습니다.",
+        "reason": "no id"
+    },
+    "11": {
+        "text": "비밀번호가 일치하지 않습니다.",
+        "reason": "no password"
+    }
+}
