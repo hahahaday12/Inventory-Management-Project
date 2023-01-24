@@ -2,24 +2,27 @@ const {jwts, hash, handler} = require('../utils');
 const {makeRefreshToken, makeAccessToken, verifyToken, isExistSnsId, snsSignUp} = require('../utils/kakao_jwt');
 const { errorHandler } = handler;
 const axios = require('axios')
-
 const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth"
 const KAKAO_AUTH_REDIRECT_URL = "http://localhost:3001/auth/kakao/callback"
 
 module.exports = {
     silent_refresh: async (req, res) => {
-        console.log(req);
-        const {refreshToken} = req.cookies;
-        console.log(refreshToken);
-        const verifyAccessToken = verifyToken(refreshToken);
+        let refreshToken = null;
+        try{
+            refreshToken = req.headers.cookie.replace("refreshToken=","");
+        }catch(err){
+            console.log(err);
+        }
+        const verifyAccessToken = await verifyToken(refreshToken);
 
+        console.log("verifyAccessToken",JSON.stringify(verifyAccessToken));
         if(verifyAccessToken.id){
 
             // refresh Token 갱신 
-            const accessToken = makeAccessToken(verifyAccessToken.id);
-            const refreshToken = makeRefreshToken(verifyAccessToken.id);
+            const accessToken = await makeAccessToken(verifyAccessToken.id);
+            const refreshToken = await makeRefreshToken(verifyAccessToken.id);
             res.cookie('refreshToken', refreshToken, {
-                httpOnly: true
+                httpOnly: true,
             });
             return res.json({accessToken})
         }
@@ -27,7 +30,6 @@ module.exports = {
     },
 
     callback: async (req, res) => {
-    console.log(req.query);
     const {code} = req.query;
     try{
 
@@ -47,8 +49,6 @@ module.exports = {
         })
         const kakao_access_token = data['access_token'];
 
-        console.log(kakao_access_token);
-
         const {data:me} = await axios({
             method: 'GET',
             url: `https://kapi.kakao.com/v2/user/me`,
@@ -59,10 +59,6 @@ module.exports = {
 
         const {id, kakao_account} = me;
 
-        console.log(me);
-
-        console.log("test", kakao_account)
-        
         const userInformation = {
             email: kakao_account.email,
             user_name: kakao_account.email,
@@ -72,19 +68,22 @@ module.exports = {
 
         const user_id = await isExistSnsId(userInformation.type, userInformation.sns_id);
 
-        console.log(user_id)
         // id가 있는경우 가입이 된 상태이기 떄문에 로그인 로직으로 넘긴다
         if(user_id){
-            const refreshToken = makeRefreshToken(user_id);
+            console.log("user_id", user_id);
+            const refreshToken = await makeRefreshToken(user_id);
+            console.log("refreshToken:::1", refreshToken);
             res.cookie('refreshToken', refreshToken, {
-                httpOnly: true
+                httpOnly: true,
             });
         }else{
             const signUpUserId= await snsSignUp(userInformation);
             // 가입 완료 후 바로 로그인 로직으로 넘겨서 로그인 되게끔 진행한다 
-            const refreshToken = makeRefreshToken(signUpUserId);
+            console.log("signUpUserId", signUpUserId);
+            const refreshToken = await makeRefreshToken(signUpUserId);
+            console.log("refreshToken:::2", refreshToken);
             res.cookie('refreshToken', refreshToken, {
-                httpOnly: true
+                httpOnly: true,
             });
         }
     }catch (error){

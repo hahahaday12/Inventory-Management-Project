@@ -4,6 +4,7 @@ const { errorHandler } = handler;
 const { user } = require('../models');
 const db = require('../models/index');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 module.exports = {
     isExistSnsId: async (type, sns_id) => {
@@ -58,8 +59,10 @@ module.exports = {
         }
     },
     verifyToken: async (token) => {
+        console.log("token",token);
         try {
-            const decoded = jwt.verify(token, "PASSWORD")
+            console.log(process.env.REACT_APP_TOKEN);
+            const decoded = await jwt.verify(token, process.env.REACT_APP_TOKEN)
             return decoded;
         } catch (error) {
             // TokenExpiredError
@@ -89,9 +92,10 @@ module.exports = {
     // 매 요청마다 로그인 수행 한다 -> cookie에 있는 거로 
     makeAccessToken: async (id) => {
         try {
-            return jwt.sign({
+            return await jwt.sign({
                 id
-            }, "PASSWORD", {
+            }, process.env.REACT_APP_TOKEN, {
+                algorithm: 'HS256',
                 expiresIn: '2h'
             })
         } catch (error) {
@@ -102,9 +106,10 @@ module.exports = {
     // 유효기간 2주
     makeRefreshToken: async (id) => {
         try {
-            return jwt.sign({
+            return await jwt.sign({
                 id
-            }, "PASSWORD", {
+            }, process.env.REACT_APP_TOKEN, {
+                algorithm: 'HS256',
                 expiresIn: '14d'
             })
             
