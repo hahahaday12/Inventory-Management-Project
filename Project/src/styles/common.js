@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 
 export const Background = css`
-  //width: 300px;
   height: 30px;
   display: flex;
   background-color: white;
@@ -22,4 +21,28 @@ export const InnerText3 = css`
   margin-top: 18px;
   margin-left: 55px;
   font-weight: 600;
+`
+export const FooterText = css`
+  width: 500px;
+  height: 80px;
+  display: flex;
+  position: absolute;
+  color: white;
+`
+
+export const FooterBoxx = css`
+  width: 900px;
+  height: 160px;
+  display: flex;
+  position: relative;
+`
+export const CommonLayoutAll = css`
+  display: flex;
+  position: relative;
+`
+export const FontStyle = css`
+  width: 230px;
+  height: 40px;
+  display: flex;
+  position: absolute;
 `
