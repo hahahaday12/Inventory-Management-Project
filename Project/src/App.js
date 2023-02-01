@@ -28,10 +28,18 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<FirstMain/>}/>
-      <Route path="/prouct" element={<PrivateRoute component={<ProuctLayout/>}/>
-      }/>
-      <Route path='/login' element={<LoginText/>}/>
-      <Route path='/join' element={<JoinForm/>}/>
+        <Route path='/login' element={
+         <LoginText/>}/>
+        <Route path='/join' element={<JoinForm/>}/>
+        <Route path="/product" element={
+          <PrivateRoute component={<ProuctList/>} />
+        }/>
+        <Route path="/productinput" element={
+          <PrivateRoute component={<InputList/>} />
+        }/>
+        <Route path="/productoutput" element={
+          <PrivateRoute component={<OutPutList/>} />
+        }/>
     </Routes>
   );
 }
