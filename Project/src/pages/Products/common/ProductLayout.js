@@ -1,3 +1,4 @@
+import {ProuctBackground, Headerbox } from '../../../styleComponents/ProductPageComponent/ProductStyleDetail'
 import styled from 'styled-components';
 import Sidebar from './sideBar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -5,20 +6,16 @@ import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 
 const ProuctLayOut = () => {
   return(
-  <>
-   
+  <> 
   <Headerbox>
     <img alt='logoimg' src='./img/boxlog.png'/>  
     <InnerProdfile>
       <Support>
-        {/* <Iconwrap>
-          <FontAwesomeIcon icon={faCircleQuestion}/>
-        </Iconwrap> */}
-        <SupportText>고객지원
-        <Iconwrap>
-          <FontAwesomeIcon icon={faCircleQuestion}/>
-        </Iconwrap>
-
+        <SupportText>
+          고객지원
+          <Iconwrap>
+            <FontAwesomeIcon icon={faCircleQuestion}/>
+          </Iconwrap>
         </SupportText>
       </Support>
 
@@ -26,44 +23,12 @@ const ProuctLayOut = () => {
       </Profile>
     </InnerProdfile>
   </Headerbox>
-
     <Sidebar/>
-
-
   <ProuctBackground/>
   </>
   )
 };
 export default ProuctLayOut;
-
-const ProuctBackground = styled.div`
-  width: 1536px;
-  height: 864px;
-  background-color: aliceblue;
-  border-right: solid 3px #dfdfe5;
-`
-
-const Headerbox = styled.div`
-  width: 1536px;
-  height: 75px;
-  background-color:white;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  border-bottom: solid 3px #dfdfe5;
-  
-
-& img{
-    width: 120px;
-    height: 120px;
-    //background-color: aquamarine;
-    margin-bottom: 100px;
-    display: flex;
-    position: relative;
-    bottom: 22px;
-    left: 50px;
-  }
-`
 
 const InnerProdfile = styled.div`
   width: 400px;
@@ -71,7 +36,6 @@ const InnerProdfile = styled.div`
   position: relative;
   display: flex;
 `
-
 const Profile = styled.div`
   width: 40px;
   height: 40px;
@@ -106,6 +70,5 @@ const SupportText = styled.div`
 const Iconwrap = styled.div`
   width: 20px;
   height: 20px;
-  //background-color: yellowgreen;
   color: blue;
 `

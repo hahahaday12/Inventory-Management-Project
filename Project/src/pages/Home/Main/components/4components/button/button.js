@@ -5,7 +5,7 @@ const TryJoin = () => {
   return(
     <JoinButton>
       <Link style={{ textDecoration: 'none', color: 'gray' , fontWeight: '600' }} to="/service">
-        <p3>⚡지금 가입해서 체험해 보세요!</p3>
+        <P3>⚡지금 가입해서 체험해 보세요!</P3>
       </Link>
     </JoinButton>
  
@@ -22,12 +22,11 @@ const JoinButton = styled.div`
   border-radius: 10px;
   top: 300px;
   left: 370px;
-
-  & p3{
+`
+const P3 = styled.p`
     color: white;
     font-weight: 600;
     position: relative;
     top: 12px;
-    left: 10px;
-  }
+    left: 10px; 
 `

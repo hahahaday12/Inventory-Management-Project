@@ -1,3 +1,4 @@
+import { ProductsContainer } from '../../../../styleComponents/MainPageComponents/MainStyleDetail';
 import styled from 'styled-components';
 import './Products.css'
 
@@ -28,14 +29,3 @@ const Products = () => {
   )
 };
 export default Products;
-
-const ProductsContainer = styled.div`
-  width: 750px;
-  height: 280px;
-  display: flex;
-  position: absolute;
-  //background-color: red;
-  top: 230px;
-  left: 370px;
-
-`

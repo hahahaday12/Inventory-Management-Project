@@ -1,5 +1,7 @@
+import { StartContainer } from '../../../../styleComponents/MainPageComponents/MainStyleDetail';
+import { fontsize, fontWeight } from '../../../../styles/theme';
+import {FooterText, CommonLayoutAll} from '../../../../styles/common'
 import styled from 'styled-components';
-import {FooterText} from '../../../../styles/common'
 import FivePage from '../5components/layout';
 
 const StartBox = () => {
@@ -15,29 +17,28 @@ const StartBox = () => {
 };
 export default StartBox;
 
-const StartContainer = styled.div`
-  width:1536px;
-  height: 280px;
-  display: flex;
-  background-color: #292a2f;
-  position: absolute;
-  top: 3250px;
-`
 const StartBoxText = styled.div`
-  ${FooterText}
   left: 530px;
-  font-size: 25px;
   margin-top: 80px;
-  font-weight: 800;
+  ${FooterText}
+  font-size: ${fontsize[4]};
+  font-weight: ${fontWeight[1]};
+
+  @media screen and (min-width: 1536px) {
+    margin-left: 200px;
+    }
 `
 const StartInnerText = styled.div`
   ${FooterText}
-  font-size: 16px;
-  font-weight: 800;
-  color: #DFD3C3;
-  display: flex;
-  position: relative;
   top: 150px;
   left: 570px;
+  color: #DFD3C3;
   align-items: center;
+  ${CommonLayoutAll}
+  font-size: ${fontsize[2]};
+  font-weight: ${fontWeight[3]};
+
+  @media screen and (min-width: 1536px) {
+    margin-left: 200px;
+    }
 `

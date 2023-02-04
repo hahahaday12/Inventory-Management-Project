@@ -53,7 +53,7 @@ const P1 = styled.div`
   bottom: 50px;
   left: 70px;
   font-size: 14px;
-  font-weight: 600
+  font-weight: 600;
 `
 const P2 = styled.div`
   display: flex;

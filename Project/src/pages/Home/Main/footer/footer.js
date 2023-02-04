@@ -1,6 +1,7 @@
+import { FooterBox, FooterContainer } from '../../../../styleComponents/MainPageComponents/MainStyleDetail';
+import { fontWeight, fontsize } from '../../../../styles/theme';
 import styled from 'styled-components';
 import FooterImgbox from './footerimg';
-import {CommonLayout3} from '../../../../styles/common'
 
 const Footer = () => {
   return(
@@ -24,33 +25,24 @@ const Footer = () => {
 };
 export default Footer;
 
-const FooterContainer = styled.div`
-  width:1536px;
-  height: 350px;
-  display: flex;
-  background-color: aliceblue;
-  position: absolute;
-  top: 3530px;
-`
-const FooterBox = styled.div`
-  ${FooterBoxx}
-  top: 20px;
-  left: 250px;
-`
 const SiteMapBox = styled.div`
   width: 100px;
   height: 160px;
-  font-size: 16px;
-  position: relative;
   left: 200px;
+  font-size: ${fontsize[2]};
+  position: relative;
   & li{
     display: grid;
+    color: #434242;
 	  grid-template-columns: 100px;
 	  grid-template-rows: 10px 10px 10px 10px;
-    font-size: 13px;
-    font-weight: 800;
-    color: #434242;
+    font-size: ${fontsize[1]};
+    font-weight: ${fontWeight[3]};
   }
+
+  @media screen and (min-width: 1536px) {
+      margin-left: 200px;
+    }
 `
 const Li = styled.p`
   display: flex;
@@ -60,16 +52,16 @@ const Li = styled.p`
 const SiteCall = styled.div`
   width: 300px;
   height: 160px;
-  font-size: 16px;
-  position: relative;
   left: 500px;
+  font-size: ${fontsize[2]};
+  position: relative;
 
   & li {
     list-style: none;
     display: flex;
     margin-bottom: 10px;
     color: #434242;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: ${fontsize[1]};
+    font-weight: ${fontWeight[1]};
   }
 `

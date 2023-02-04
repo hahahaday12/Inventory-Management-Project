@@ -1,9 +1,12 @@
+import { SidebarContainer, Item } from '../../../styleComponents/ProductPageComponent/ProductStyleDetail'
+import { faBox, faCircleArrowDown,faCircleArrowUp  } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link, useLocation } from "react-router-dom";
 import SidebarItem from './sideBarItems';
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-//import { faCalendar } from "@fortawesome/free-regular-svg-icons"
-import { faBox, faCircleArrowDown,faCircleArrowUp  } from "@fortawesome/free-solid-svg-icons"
+import SidebarItem from './sideBarItems';
+
+
 
 const Sidebar = () => {
 
@@ -34,9 +37,9 @@ const Sidebar = () => {
   ]
 
   const isColor = 
-    pathName === "/product" ? "aliceblue"
-    : ( pathName === "/productinput" ? "aliceblue"
-    : pathName === "/productoutput" ? "aliceblue" : '')
+    pathName === "/product" ? "#edefff"
+    : ( pathName === "/productinput" ? "#edefff"
+    : pathName === "/productoutput" ? "#edefff" : '')
 
   return (
     <>
@@ -44,7 +47,7 @@ const Sidebar = () => {
         <Item>
           <User><UserText>Team 우가우가</UserText></User>
           <CategoryBox>
-        {Categorys.map((menu) => {
+          {Categorys.map((menu) => {
           return (
             <div className="iconWrap">
               <SLink to={menu.path} key={menu.id}>
@@ -63,30 +66,8 @@ const Sidebar = () => {
       </SidebarContainer>
     </>
   )
-}
-
+};
 export default Sidebar;
-
-
-const SidebarContainer = styled.div`
-
-  & .iconWrap {
-    width: 230px;
-    height: 40px;
-    display: flex;
-    position: relative;
-    margin: 10px auto;
-    border-radius: 10px;
-  }
-`
-const Item = styled.div`
-  width: 250px;
-  height: 700px;
-  position: absolute;
-  top: 75px;
-  background-color: white;
-  border-right: solid 3px #dfdfe5;
-`
 
 const User = styled.div`
   width: 250px;
@@ -104,15 +85,12 @@ const UserText = styled.div`
   font-size: 22px;
   font-weight: 600;
 `
-
-
 const CategoryBox = styled.div`
   width: 240px;
   height: 200px;
   //background-color: beige;
   position: relative;
 `
-
 const SLink = styled(Link)`
   text-decoration: none;
   color: black;

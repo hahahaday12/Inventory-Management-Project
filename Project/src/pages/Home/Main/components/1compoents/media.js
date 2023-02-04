@@ -1,4 +1,6 @@
+import { CommonLayoutAll } from '../../../../styles/common';
 import styled from 'styled-components';
+import React from 'react';
 
 const InnerImg = () => {
   return(
@@ -14,19 +16,22 @@ export default InnerImg;
 const ImgContainer = styled.div`
   width: 800px;
   height: 400px;
-  background-color: #EAE0DA;
-  position: relative;
-  display: flex;
   top: 100px;
-  border-radius: 30px;
   right: 100px;
+  ${CommonLayoutAll}
+  border-radius: 30px;
+  background-color: #EAE0DA;
+
+  @media screen and (min-width: 1536px) {
+        margin-left: 100px;
+    }
 `
 const ImgBox = styled.div`
   width: 700px;
   height: 330px;
-  background-color: white;
   display: flex;
   margin-top: 35px;
   margin-left: 50px;
   border-radius: 20px;
+  background-color: white;
 `

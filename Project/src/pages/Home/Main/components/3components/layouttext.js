@@ -1,12 +1,14 @@
-import styled from 'styled-components';
 import {CommonLayout3,InnerText3} from '../../../../../styles/common'
+import { fontsize, fontWeight } from '../../../../styles/theme';
+import styled from 'styled-components';
+import React from 'react';
 
 const LayoutText = () => {
   return(
     <>
     <AllText>입고,출고,발주도 한번에!</AllText>
-    <AllLook><p1>👀발주→입고→출고를 한눈에!</p1></AllLook>
-    <Update><p2>⚡재고 수량은 자동으로 업데이트</p2></Update>
+    <AllLook><P1>👀발주→입고→출고를 한눈에!</P1></AllLook>
+    <Update><P2>⚡재고 수량은 자동으로 업데이트</P2></Update>
     </>
   );
 };
@@ -15,31 +17,28 @@ export default LayoutText;
 const AllText = styled.div`
   width: 300px;
   height: 30px;
-  background-color: aquamarine;
-  display: flex;
-  position: relative;
   top: 70px;
   left: 100px;
-  font-size: 35px;
-  font-weight: 600;
+  font-size: ${fontsize[6]};
+  font-weight: ${fontWeight[1]};
+  ${CommonLayoutAll}
 `
  const AllLook = styled.div`
-  ${CommonLayout3};
-   border: 3px solid #89C4E1;
-   top: 200px;
-   left: 20px;
- 
-   & p1{
-    ${InnerText3}
-   }
- `
- const Update = styled.div`
+  top: 200px;
+  left: 20px;
   ${CommonLayout3};
   border: 3px solid #89C4E1;
+ `
+
+  const P1 = styled.p`
+    ${InnerText}
+ `
+ const Update = styled.div`
   top: 280px;
   left: 200px;
- 
-  & p2{
-    ${InnerText3}
-  }
- `
+  ${CommonLayout3};
+  border: 3px solid #89C4E1;
+`
+const P2 = styled.div`
+   ${InnerText} 
+`

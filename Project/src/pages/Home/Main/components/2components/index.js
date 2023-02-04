@@ -1,6 +1,9 @@
-import styled from 'styled-components';
+import { SecondContainer, SecondImgBox } from '../../../../styleComponents/MainPageComponents/MainStyleDetail';
+import { fontsize, fontWeight } from '../../../../styles/theme';
 import { Background } from '../../../../../styles/common';
 import MainStart from '../1compoents/start';
+import styled from 'styled-components';
+import React from 'react';
 
 const SecondPage = () => {
   return(
@@ -20,23 +23,6 @@ const SecondPage = () => {
 };
 export default SecondPage;
 
-const SecondTextBox = styled.div`
-  width: 1000px;
-  height: 500px;
-  display: flex;
-  background-color: blue;
-  position: relative;
-  top: 900px;
-  left: 250px;
-
-  & img{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    left: 10px;
-  }
-
-`
 const Stext = styled.div`
   width: 450px;
   height: 30px;
@@ -68,12 +54,4 @@ const P2 = styled.div`
    ${Background}
    top: 400px;
    left: 50px;
-  `
-  const SecondImg = styled.div`
-    width: 340px;
-    height: 400px;
-    background-color: antiquewhite;
-    position: relative;
-    top: 50px;
-    left: 120px;
   `

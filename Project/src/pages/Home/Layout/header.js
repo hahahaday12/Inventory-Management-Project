@@ -35,6 +35,10 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: -1px;
 
+   @media screen and (min-width: 1536px) {
+        width: 1856px;
+    }
+
   & img{
     width: 130px;
     height: 130px;
