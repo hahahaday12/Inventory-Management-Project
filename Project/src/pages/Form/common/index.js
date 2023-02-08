@@ -1,43 +1,42 @@
 import {CommonLayoutAll, FontStyle} from '../../../styles/common'
-import ALLlayout from '../../../common/Layout/commonlayout';
+import ALLlayout from './Layout/layout';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import LoginText from '../components/login/loginForm';
 
-
-
-const CommonForm = () => {
-  return(
+  const CommonForm = (props) => {
+    return(
     <>
-    <ALLlayout/>
-    <LoginBox>
-      <Loginform>
-        <FormTop>
-          <TopInner>
-          <img alt='logoimg' src='./img/logoimg2.png'/>
-          <P1>가장쉬운 재고 관리 솔루션</P1>
-          </TopInner>
-        </FormTop>
+     <ALLlayout/>
+      <LoginBox>
+        <Loginform>
+          <FormTop>
+            <TopInner>
+              <img alt='logoimg' src='./img/logoimg2.png'/>
+              <P1>가장쉬운 재고 관리 솔루션</P1>
+            </TopInner>
+          </FormTop>
         
-        <LoginBottomBox>
+          <LoginBottomBox>
           {/* <LoginText/> */}
-          <LogoimgsBox>
-            <img alt='logoimg' src='./img/google.png'/>
-            <img alt='logoimg' src='./img/naver.png'/>
-            <a href='http://localhost:3001/auth/kakao'>
-            <img alt='logoimg' src='./img/realkakao.png'/>
-            </a>
-          </LogoimgsBox>
+            <LogoimgsBox>
+              <img alt='logoimg' src='./img/google.png'/>
+              <img alt='logoimg' src='./img/naver.png'/>
+              <a href='http://localhost:3001/auth/kakao'>
+              <img alt='logoimg' src='./img/realkakao.png'/>
+              </a>
+            </LogoimgsBox>
 
-          <EmailLoginBox>
-            <Linebox><P>또는</P></Linebox>
-            <Link to="/login" style={{ textDecoration: 'none', color: 'gray' , fontWeight: '600' }}>
-            <EmailButton/>  
+            <EmailLoginBox>
+              <Linebox><P>또는</P></Linebox>
+              <Link to="/login" style={{ textDecoration: 'none', color: 'gray' , fontWeight: '600' }}>
+              <EmailButton/>
           {/* </EmailButton> */}
-            </Link>
-          </EmailLoginBox>
-        </LoginBottomBox> 
-      </Loginform>
-    </LoginBox>
+              </Link>
+            </EmailLoginBox>
+          </LoginBottomBox> 
+        </Loginform>
+      </LoginBox>  
     </>
   )
 };
@@ -48,9 +47,9 @@ const LoginBox = styled.div`
  height: 560px;
  display: flex;
  position: absolute;
- top: 140px;
+ top: 70px;
  left: 520px;
- margin: auto;
+ background-color: tan;
 `
 const Loginform = styled.div`
   width: 360px;
@@ -81,13 +80,16 @@ const LogoimgsBox = styled.div`
   height: 60px;
   display: flex;
   position: absolute;
+  z-index: 100;
   top: 70px;
   margin-left:70px;
+  z-index: 10;
 
   & img{
     width: 50px;
     height: 50px;
     margin-left: 20px;
+    
   }
 `
 const EmailLoginBox = styled.div`
@@ -95,6 +97,7 @@ const EmailLoginBox = styled.div`
   height: 100px;
   display: flex;
   position: absolute;
+  z-index: 30;
   top: 130px;
 `
 const Linebox = styled.p`
