@@ -1,24 +1,44 @@
 import { useState , useEffect } from 'react';
 import styled from 'styled-components';
 import { ProductListContainer, ProductHeader,Title,ProductBox, InputBox, InnerBox, ItemBox, InnerItemBox,TextBox} from '../../../../styleComponents/ProductPageComponent/productDetail/ProductDetailLayout';
-//import axios from 'axios';
+import axios from 'axios';
+import { Input } from 'antd';
+const { Search } = Input;
 
 const ProductList = () => {
 
-  const [product, setProduct] = useState([
-    {
-      id:1,
-      text:"바닐라시럽"
-    },
-    {
-      id:2,
-      text:"유리컵"
-    },
-    {
-      id:3,
-      text:"원두"
+  const [loading, setLoading] = useState(true);
+
+  const [product, setProductInfo] = useState([]);
+
+  const [search, setSearch] = useState("");
+
+  useEffect(() =>{
+    setLoading(true);
+    const headers = {
+      'authorization' : localStorage.getItem('accessToken')
     }
-  ]);
+ 		axios.get('http://localhost:3001/api/product/getProduct', {headers
+ 		}).then(res => {
+         setProductInfo([...res.data.result]);
+        setLoading(false);
+ 	  });
+  },[]);
+
+  const data = Object.values(product);
+
+  const fnSearch = (items) =>{
+    return items.filter((item) => {
+      if(item['product_name'] !==  undefined){
+        return (
+          item['product_name']
+              .toString()
+              .toLowerCase()
+              .indexOf(search.toLowerCase()) > -1
+        );
+      }
+    });
+  }
 
   return(
   <>
