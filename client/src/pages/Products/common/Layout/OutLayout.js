@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Sidebar from './sideBar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
-import { media } from '../../../../styles/media';
 import {ProuctBackground} from '../../../../styleComponents/ProductPageComponent/CommonDetail/commonLayout'
 
 

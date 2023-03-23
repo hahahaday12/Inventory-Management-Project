@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import ImgBox from '../LoginImg/ImgLayout';
-import {CommonLayoutAll, FontStyle} from '../../../../styles/common'
 
 const FormLayout = () => {
   return(
